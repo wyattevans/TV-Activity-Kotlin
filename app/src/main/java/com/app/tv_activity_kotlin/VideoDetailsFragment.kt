@@ -46,11 +46,8 @@ import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 
 import java.util.Collections
+import kotlin.math.roundToInt
 
-/**
- * A wrapper fragment for leanback details screens.
- * It shows a detailed view of video and its metadata plus related videos.
- */
 class VideoDetailsFragment : DetailsFragment() {
 
     private var mSelectedMovie: Movie? = null
@@ -139,12 +136,10 @@ class VideoDetailsFragment : DetailsFragment() {
     }
 
     private fun setupDetailsOverviewRowPresenter() {
-        // Set detail background.
         val detailsPresenter = FullWidthDetailsOverviewRowPresenter(DetailsDescriptionPresenter())
         detailsPresenter.backgroundColor =
                 ContextCompat.getColor(activity, R.color.selected_background)
 
-        // Hook up transition element.
         val sharedElementHelper = FullWidthDetailsOverviewSharedElementHelper()
         sharedElementHelper.setSharedElementEnterTransition(
                 activity, DetailsActivity.SHARED_ELEMENT_NAME)
@@ -180,7 +175,7 @@ class VideoDetailsFragment : DetailsFragment() {
 
     private fun convertDpToPixel(context: Context, dp: Int): Int {
         val density = context.applicationContext.resources.displayMetrics.density
-        return Math.round(dp.toFloat() * density)
+        return (dp.toFloat() * density).roundToInt()
     }
 
     private inner class ItemViewClickedListener : OnItemViewClickedListener {
@@ -206,15 +201,15 @@ class VideoDetailsFragment : DetailsFragment() {
     }
 
     companion object {
-        private val TAG = "VideoDetailsFragment"
+        private const val TAG = "VideoDetailsFragment"
 
-        private val ACTION_WATCH_TRAILER = 1L
-        private val ACTION_RENT = 2L
-        private val ACTION_BUY = 3L
+        private const val ACTION_WATCH_TRAILER = 1L
+        private const val ACTION_RENT = 2L
+        private const val ACTION_BUY = 3L
 
-        private val DETAIL_THUMB_WIDTH = 274
-        private val DETAIL_THUMB_HEIGHT = 274
+        private const val DETAIL_THUMB_WIDTH = 274
+        private const val DETAIL_THUMB_HEIGHT = 274
 
-        private val NUM_COLS = 10
+        private const val NUM_COLS = 10
     }
 }
