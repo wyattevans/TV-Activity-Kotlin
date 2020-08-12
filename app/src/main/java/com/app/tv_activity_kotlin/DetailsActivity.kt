@@ -17,9 +17,6 @@ package com.app.tv_activity_kotlin
 import android.app.Activity
 import android.os.Bundle
 
-/**
- * Details activity class that loads [VideoDetailsFragment] class.
- */
 class DetailsActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
