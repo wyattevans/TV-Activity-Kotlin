@@ -14,7 +14,6 @@
     <string name="buy_2">AT $9.99</string>
     <string name="movie">Movie</string>
 
-    <!-- Error messages -->
     <string name="error_fragment_message">An error occurred</string>
     <string name="dismiss_error">Dismiss</string>
 </resources>
